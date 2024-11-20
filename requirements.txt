@@ -1,0 +1,9 @@
+discord.py
+
+pydantic-settings
+
+fastapi
+
+uvicorn
+
+psutil
