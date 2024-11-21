@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord
+spec:
+  selector:
+    matchLabels:
+      app: discord
+  template:
+    metadata:
+      labels:
+        app: discord
+    spec:
+      containers:
+        - name: discord
+          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_ce2ccf0ab09b
+          ports:
+            - containerPort: 8000
