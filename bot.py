@@ -47,7 +47,6 @@ class DiscordBot(commands.Bot):
         """봇이 준비되었을 때 호출되는 이벤트"""
         logger.info(f'Logged in as {self.user.name} (ID: {self.user.id})')
         logger.info(f'Connected to {len(self.guilds)} guilds')
-        self.channel = self.get_channel(self.sentry_channel)
         
         activity = Game("조일민 탈영병 추노")
         await self.change_presence(status=Status.online, activity=activity)

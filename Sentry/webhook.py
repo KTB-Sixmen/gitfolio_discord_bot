@@ -92,11 +92,11 @@ async def webhook(request: Request):
                 value=event['environment'],
                 inline=True
             )
-
+            
         # 추가 태그 정보
         if 'tags' in event:
             tags_info = []
-            for key, value in event['tags']:
+            for key, value in event['tags'].items():
                 tags_info.append(f"{key}: {value}")
             if tags_info:
                 embed.add_field(
