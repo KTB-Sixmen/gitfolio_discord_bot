@@ -15,25 +15,11 @@ logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # # Startup: Discord 봇 시작
-    # try:
-    #     await asyncio.create_task(bot.start(bot.token))
-    #     logger.info("Starting Discord bot...")
-    # except Exception as e:
-    #     logger.error(f"Failed to start bot: {e}")
-    #     raise
-
-    # yield  # FastAPI 애플리케이션 실행 
-
-    # # Shutdown: Discord 봇 종료
-    # try:
-    #     await bot.close()
-    #     logger.info("Discord bot closed")
-    # except Exception as e:
-    #     logger.error(f"Error closing bot: {e}")
     bot_task = asyncio.create_task(bot.start(bot.token))
     logger.info("Starting Discord bot...")
+    
     yield
+    
     await bot.close()
     logger.info("Discord bot closed")
 
@@ -103,5 +89,4 @@ def run_bot():
         loop.close()
 
 if __name__ == "__main__":
-    # run_bot()
     uvicorn.run(app, host=bot.host, port=bot.port)

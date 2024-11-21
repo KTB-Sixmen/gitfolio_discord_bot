@@ -11,6 +11,8 @@ class Settings(BaseSettings):
     HOST: str
     PORT: int
 
+    PROXY_URL: str
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
