@@ -13,16 +13,16 @@ spec:
         paths:
           - path: /webhook/sentry
             pathType: Prefix
-            discord:
+            backend:
               serviceName: discord
               servicePort: 8000
           - path: /health
             pathType: Prefix
-            discord:
+            backend:
               serviceName: discord
               servicePort: 8000
           - path: /health/detailed
             pathType: Prefix
-            discord:
+            backend:
               serviceName: discord
               servicePort: 8000
