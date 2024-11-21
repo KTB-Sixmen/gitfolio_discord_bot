@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  labels:
+    app.kubernetes.io/managed-by: kargocd
+  name: discord-ingress
+  namespace: default
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /webhook/sentry
+            pathType: Prefix
+            discord:
+              serviceName: discord
+              servicePort: 8000
+          - path: /health
+            pathType: Prefix
+            discord:
+              serviceName: discord
+              servicePort: 8000
+          - path: /health/detailed
+            pathType: Prefix
+            discord:
+              serviceName: discord
+              servicePort: 8000
