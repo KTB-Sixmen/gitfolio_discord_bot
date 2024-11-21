@@ -1,0 +1,13 @@
+discord.py
+
+pydantic-settings
+
+fastapi
+
+uvicorn
+
+psutil
+
+aiohttp
+
+aiohttp_socks
