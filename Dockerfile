@@ -1,4 +1,4 @@
-FROM krmp-d2hub-idock.9rum.cc/goorm/python:3.12-alpine
+FROM python:3.12-alpine
 
 WORKDIR /app
 
