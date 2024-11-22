@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: discord
+  name: discord-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: discord
+      app: discord-bot
   template:
     metadata:
       labels:
-        app: discord
+        app: discord-bot
     spec:
       containers:
-      - name: discord
+      - name: discord_bot
         image: krmp-d2hub-idock.9rum.cc/dev-test/repo_ce2ccf0ab09b
