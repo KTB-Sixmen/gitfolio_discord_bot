@@ -5,8 +5,8 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
   labels:
     app.kubernetes.io/managed-by: kargocd
-  name: discord-ingress
-  namespace: default
+  name: discord
+  namespace: discord
 spec:
   rules:
   - http:
