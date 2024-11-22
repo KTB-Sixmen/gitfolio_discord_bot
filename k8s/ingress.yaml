@@ -5,8 +5,8 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
   labels:
     app.kubernetes.io/managed-by: kargocd
-  name: discord
-  namespace: discord
+  name: discord-ingress
+  namespace: default
 spec:
   rules:
   - http:
@@ -14,21 +14,15 @@ spec:
       - path: /webhook/sentry
         pathType: Prefix
         backend:
-          service:
-            name: discord
-            port:
-              name: fastapi
+          serviceName: discord
+          servicePort: 8000
       - path: /health
         pathType: Prefix
         backend:
-          service:
-            name: discord
-            port:
-              name: fastapi
+          serviceName: discord
+          servicePort: 8000
       - path: /health/detailed
         pathType: Prefix
         backend:
-          service:
-            name: discord
-            port:
-              name: fastapi
+          serviceName: discord
+          servicePort: 8000
