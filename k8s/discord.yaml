@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: discord
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: discord
@@ -12,7 +13,5 @@ spec:
         app: discord
     spec:
       containers:
-        - name: discord
-          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_ce2ccf0ab09b
-          ports:
-            - containerPort: 8000
+      - name: discord
+        image: krmp-d2hub-idock.9rum.cc/dev-test/repo_ce2ccf0ab09b
