@@ -19,5 +19,5 @@ spec:
         - containerPort: 8000
           name: fastapi
     envFrom:
-      - secretRef:
-          name: discord-secret
+      - configMapRef:
+          name: discord
