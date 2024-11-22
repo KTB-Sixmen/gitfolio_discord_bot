@@ -17,18 +17,18 @@ spec:
           service:
             name: discord
             port:
-              number: 8000
+              number: fastapi
       - path: /health
         pathType: Prefix
         backend:
           service:
             name: discord
             port:
-              number: 8000
+              number: fastapi
       - path: /health/detailed
         pathType: Prefix
         backend:
           service:
             name: discord
             port:
-              number: 8000
+              number: fastapi
