@@ -4,13 +4,16 @@ metadata:
   name: discord
 spec:
   ports:
-    - port: 8000
+    - name: FastAPI
+      port: 8000
       targetPort: 8000
       protocol: TCP
-    - port: 80
+    - name: HTTP
+      port: 80
       targetPort: 80
       protocol: TCP
-    - port: 443
+    - name: HTTPS
+      port: 443
       targetPort: 443
       protocol: TCP
   selector:
