@@ -5,7 +5,7 @@ from discord.gateway import DiscordWebSocket
 import logging
 from aiohttp import ClientSession, TCPConnector
 
-from settings import settings
+# from settings import settings
 
 # 로깅 설정
 logger = logging.getLogger(__name__)
