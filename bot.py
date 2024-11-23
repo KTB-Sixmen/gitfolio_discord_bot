@@ -53,7 +53,7 @@ class DiscordBot(commands.Bot):
             sync_command=True,
             # application_id=settings.DISCORD_BOT_ID,          # 봇 ID   
             # proxy_url=settings.PROXY_URL
-            application_id=os.environ['DISCORD_BOT_ID'],          # 봇 ID
+            application_id=int(os.environ['DISCORD_BOT_ID']),          # 봇 ID
             proxy_url=os.environ['PROXY_URL']
         )
         self.initial_extensions = [
