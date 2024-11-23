@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: discord-bot
-        image: krmp-d2hub-idock.9rum.cc/dev-test/repo_ce2ccf0ab09b
+        image: krmp-d2hub-idock.9rum.cc/dev-test/repo_89dc5253052a
         ports:
         - containerPort: 8000
           name: fastapi
