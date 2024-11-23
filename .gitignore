@@ -278,3 +278,4 @@ $RECYCLE.BIN/
 *.lnk
 
 secrets.yaml
+settings.py
