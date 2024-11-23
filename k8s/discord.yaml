@@ -18,6 +18,10 @@ spec:
         ports:
         - containerPort: 8000
           name: fastapi
-        envFrom:
-          - configMapRef:
-              name: discord
+        volumeMounts:
+        - name: discord-bot-config
+          mountPath: /app/.env
+      volumes:
+      - name: discord-bot-config
+        configMap:
+          name: discord
