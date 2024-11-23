@@ -3,3 +3,7 @@ resources:
   - discord.yaml
   - ingress.yaml
   - service.yaml
+secretGenerator:
+  - name: discord-secret
+    files:
+      - .env
