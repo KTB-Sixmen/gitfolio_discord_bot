@@ -20,4 +20,4 @@ spec:
           name: fastapi
         envFrom:
         - configMapRef:
-            name: discord-config
+            name: discord
