@@ -78,27 +78,28 @@ class DiscordBot(commands.Bot):
         self.ws_class = ProxyWebSocket
 
     async def setup_hook(self):
-        self.session = ClientSession(connector=TCPConnector(
-            ssl=False,
-            proxy=self.proxy_url,
-            force_close=True
-        ))
-        self.http.proxy = self.proxy_url
-        self.http._session = self.session
+        try:
+            self.session = ClientSession(connector=TCPConnector(
+                ssl=False,
+                proxy=self.proxy_url,
+                force_close=True
+            ))
+            self.http.proxy = self.proxy_url
+            self.http._session = self.session
 
-        # self.ws._connection.proxy = self.proxy_url
-        
-        if not self.channel:
-            try:
+            # self.ws._connection.proxy = self.proxy_url
+
+            if not self.channel:
                 self.channel = await self.fetch_channel(self.sentry_channel)
                 logger.info(f"Successfully connected to channel {self.sentry_channel}")
-            except HTTPException as e:
-                logger.error(f"Error: Could not find channel with ID {self.sentry_channel}: {e}")
 
-        for ext in self.initial_extensions:
-            await self.load_extension(ext)
-            
-        await self.tree.sync(guild=Object(id=self.server_id))
+            for ext in self.initial_extensions:
+                await self.load_extension(ext)
+
+            await self.tree.sync(guild=Object(id=self.server_id))
+        except Exception as e:
+            logger.error(f"Error during setup: {str(e)}")
+            raise
 
     async def on_ready(self):
         """봇이 준비되었을 때 호출되는 이벤트"""
