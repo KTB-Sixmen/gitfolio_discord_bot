@@ -3,6 +3,7 @@ from discord import Intents, Game, Status, Object, HTTPException
 from discord.ext import commands
 from discord.gateway import DiscordWebSocket
 import logging
+import zlib
 from aiohttp import ClientSession, TCPConnector
 
 # from settings import settings
@@ -23,7 +24,7 @@ class ProxyWebSocket(DiscordWebSocket):
             'proxy_headers': None
         }
 
-        self.comporession = compression
+        self.compression = compression
         self.shard_id = self.shard_id or 0
         self.shard_count = self.shard_count or 1
 
@@ -85,7 +86,7 @@ class DiscordBot(commands.Bot):
         self.http.proxy = self.proxy_url
         self.http._session = self.session
 
-        self.ws._connection.proxy = self.proxy_url
+        # self.ws._connection.proxy = self.proxy_url
         
         if not self.channel:
             try:
