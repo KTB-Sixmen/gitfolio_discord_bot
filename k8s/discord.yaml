@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: discord-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: backend
+      app: discord-bot
   template:
     metadata:
       labels:
-        app: backend
+        app: discord-bot
     spec:
       containers:
-      - name: backend
+      - name: discord-bot
         image: krmp-d2hub-idock.9rum.cc/dev-test/repo_89dc5253052a
         ports:
         - containerPort: 8000
           name: fastapi
       envFrom:
       - configMapRef:
-          name: discord
+          name: discord-config

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend
+  name: discord-service
 spec:
   ports:
     - name: fastapi
@@ -14,4 +14,4 @@ spec:
       port: 443
       targetPort: 443
   selector:
-    app: backend
+    app: discord-bot
