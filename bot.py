@@ -5,7 +5,7 @@ from discord.gateway import DiscordWebSocket
 import logging
 from aiohttp import ClientSession, TCPConnector
 
-from settings import settings
+# from settings import settings
 
 # 로깅 설정
 logger = logging.getLogger(__name__)
@@ -51,29 +51,29 @@ class DiscordBot(commands.Bot):
             command_prefix="!",                              # 명령어 접두사 설정
             intents=intents.all(),                           # 모든 권한 활성화
             sync_command=True,
-            application_id=settings.DISCORD_BOT_ID,          # 봇 ID   
-            proxy_url=settings.PROXY_URL
-            # application_id=int(os.environ['DISCORD_BOT_ID']),          # 봇 ID
-            # proxy_url=os.environ['PROXY_URL']
+            # application_id=settings.DISCORD_BOT_ID,          # 봇 ID   
+            # proxy_url=settings.PROXY_URL
+            application_id=int(os.environ['DISCORD_BOT_ID']),          # 봇 ID
+            proxy_url=os.environ['PROXY_URL']
         )
         self.initial_extensions = [
             "Sentry.command"
         ]
-        self.server_id = settings.DISCORD_SERVER_ID
-        self.id = settings.DISCORD_BOT_ID
-        self.token = settings.DISCORD_BOT_TOKEN
-        self.sentry_channel = settings.DISCORD_SENTRY_CHANNEL_ID
-        self.host = settings.HOST
-        self.port = settings.PORT
-        self.proxy_url = settings.PROXY_URL
+        # self.server_id = settings.DISCORD_SERVER_ID
+        # self.id = settings.DISCORD_BOT_ID
+        # self.token = settings.DISCORD_BOT_TOKEN
+        # self.sentry_channel = settings.DISCORD_SENTRY_CHANNEL_ID
+        # self.host = settings.HOST
+        # self.port = settings.PORT
+        # self.proxy_url = settings.PROXY_URL
 
-        # self.server_id = int(os.environ['DISCORD_SERVER_ID'])
-        # self.id = int(os.environ['DISCORD_BOT_ID'])
-        # self.token = os.environ['DISCORD_BOT_TOKEN']
-        # self.sentry_channel = int(os.environ['DISCORD_SENTRY_CHANNEL_ID'])
-        # self.host = os.environ['HOST']
-        # self.port = int(os.environ['PORT'])
-        # self.proxy_url = os.environ['PROXY_URL']
+        self.server_id = int(os.environ['DISCORD_SERVER_ID'])
+        self.id = int(os.environ['DISCORD_BOT_ID'])
+        self.token = os.environ['DISCORD_BOT_TOKEN']
+        self.sentry_channel = int(os.environ['DISCORD_SENTRY_CHANNEL_ID'])
+        self.host = os.environ['HOST']
+        self.port = int(os.environ['PORT'])
+        self.proxy_url = os.environ['PROXY_URL']
         self.ws_class = ProxyWebSocket
 
     async def setup_hook(self):
