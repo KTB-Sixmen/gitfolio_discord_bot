@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: discord-deployment
+  name: backend
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: discord-bot
+      app: backend
   template:
     metadata:
       labels:
-        app: discord-bot
+        app: backend
     spec:
       containers:
-      - name: discord-bot
+      - name: backend
         image: krmp-d2hub-idock.9rum.cc/dev-test/repo_89dc5253052a
         ports:
         - containerPort: 8000
