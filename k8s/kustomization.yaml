@@ -1,5 +1,0 @@
-namespace: default
-resources:
-  - discord.yaml
-  - ingress.yaml
-  - service.yaml

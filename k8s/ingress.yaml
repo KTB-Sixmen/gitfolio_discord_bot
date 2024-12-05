@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/managed-by: kargocd
   name: discord-ingress
-  namespace: default
+  namespace: gitfolio
 spec:
   rules:
   - http:
